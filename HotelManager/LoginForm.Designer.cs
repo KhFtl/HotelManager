@@ -63,6 +63,7 @@
             txt_login.Name = "txt_login";
             txt_login.Size = new Size(494, 39);
             txt_login.TabIndex = 2;
+            txt_login.Text = "admin";
             // 
             // txt_password
             // 
@@ -71,6 +72,7 @@
             txt_password.PasswordChar = '*';
             txt_password.Size = new Size(494, 39);
             txt_password.TabIndex = 3;
+            txt_password.Text = "admin";
             // 
             // btn_login
             // 

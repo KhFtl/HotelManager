@@ -42,6 +42,7 @@
             Password = new DataGridViewTextBoxColumn();
             groupBox3 = new GroupBox();
             button1 = new Button();
+            button2 = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -163,6 +164,7 @@
             // groupBox3
             // 
             groupBox3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            groupBox3.Controls.Add(button2);
             groupBox3.Controls.Add(button1);
             groupBox3.Controls.Add(btn_exit);
             groupBox3.Controls.Add(btn_register);
@@ -182,6 +184,16 @@
             button1.Text = "Видалити";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(291, 104);
+            button2.Name = "button2";
+            button2.Size = new Size(155, 47);
+            button2.TabIndex = 13;
+            button2.Text = "Refresh";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // RegisterFrom
             // 
@@ -220,5 +232,6 @@
         private DataGridViewTextBoxColumn Password;
         private GroupBox groupBox3;
         private Button button1;
+        private Button button2;
     }
 }

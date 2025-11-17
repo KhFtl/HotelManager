@@ -30,6 +30,10 @@
         {
             groupBox1 = new GroupBox();
             dataGridView1 = new DataGridView();
+            Id = new DataGridViewTextBoxColumn();
+            FirstName = new DataGridViewTextBoxColumn();
+            LastName = new DataGridViewTextBoxColumn();
+            PhoneNumber = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -47,12 +51,41 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Id, FirstName, LastName, PhoneNumber });
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.Location = new Point(3, 35);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(1450, 226);
             dataGridView1.TabIndex = 0;
+            // 
+            // Id
+            // 
+            Id.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Id.HeaderText = "Id";
+            Id.MinimumWidth = 6;
+            Id.Name = "Id";
+            // 
+            // FirstName
+            // 
+            FirstName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            FirstName.HeaderText = "Ім'я";
+            FirstName.MinimumWidth = 6;
+            FirstName.Name = "FirstName";
+            // 
+            // LastName
+            // 
+            LastName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            LastName.HeaderText = "Прізвище";
+            LastName.MinimumWidth = 6;
+            LastName.Name = "LastName";
+            // 
+            // PhoneNumber
+            // 
+            PhoneNumber.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            PhoneNumber.HeaderText = "Номер телефона";
+            PhoneNumber.MinimumWidth = 6;
+            PhoneNumber.Name = "PhoneNumber";
             // 
             // ClientsForm
             // 
@@ -74,5 +107,9 @@
 
         private GroupBox groupBox1;
         private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn FirstName;
+        private DataGridViewTextBoxColumn LastName;
+        private DataGridViewTextBoxColumn PhoneNumber;
     }
 }
