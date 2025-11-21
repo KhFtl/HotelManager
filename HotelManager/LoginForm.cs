@@ -20,7 +20,7 @@ namespace HotelManager
         {
             string login = txt_login.Text;
             if (login == string.Empty || txt_password.Text == string.Empty)
-            { 
+            {
                 MessageBox.Show("Please fill in all fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -33,13 +33,13 @@ namespace HotelManager
                     clients.ShowDialog();
                 }
                 else
-                { 
+                {
                     MessageBox.Show("Incorrect password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
             else
-            { 
+            {
                 MessageBox.Show("User not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -48,6 +48,12 @@ namespace HotelManager
         {
             RegisterFrom reg = new RegisterFrom();
             reg.ShowDialog();
+        }
+
+        private void btn_roomManager_Click(object sender, EventArgs e)
+        {
+            RoomForm roomForm = new RoomForm();
+            roomForm.ShowDialog();
         }
     }
 }

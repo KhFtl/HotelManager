@@ -35,6 +35,7 @@
             btn_login = new Button();
             btn_exit = new Button();
             btn_register = new Button();
+            btn_roomManager = new Button();
             SuspendLayout();
             // 
             // label1
@@ -96,7 +97,7 @@
             // 
             // btn_register
             // 
-            btn_register.Location = new Point(263, 226);
+            btn_register.Location = new Point(266, 226);
             btn_register.Name = "btn_register";
             btn_register.Size = new Size(173, 47);
             btn_register.TabIndex = 6;
@@ -104,11 +105,22 @@
             btn_register.UseVisualStyleBackColor = true;
             btn_register.Click += btn_register_Click;
             // 
+            // btn_roomManager
+            // 
+            btn_roomManager.Location = new Point(23, 296);
+            btn_roomManager.Name = "btn_roomManager";
+            btn_roomManager.Size = new Size(204, 47);
+            btn_roomManager.TabIndex = 7;
+            btn_roomManager.Text = "Room Manager";
+            btn_roomManager.UseVisualStyleBackColor = true;
+            btn_roomManager.Click += btn_roomManager_Click;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(13F, 31F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(683, 300);
+            ClientSize = new Size(683, 379);
+            Controls.Add(btn_roomManager);
             Controls.Add(btn_register);
             Controls.Add(btn_exit);
             Controls.Add(btn_login);
@@ -135,5 +147,6 @@
         private Button btn_login;
         private Button btn_exit;
         private Button btn_register;
+        private Button btn_roomManager;
     }
 }

@@ -79,7 +79,7 @@ namespace HotelManager.DAL
             {
                 return false;
             }
-            string query = $"UPDATE Users SET Password = '{user.Password}' WHERE Login = '{user.Login}'";
+            string query = $"UPDATE Users SET Password = '{user.Password}' WHERE Id = '{user.Id}'";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 try
