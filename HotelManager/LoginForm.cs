@@ -1,3 +1,4 @@
+using HotelManager.Configuration;
 using HotelManager.DAL;
 using HotelManager.Domains;
 
@@ -9,6 +10,10 @@ namespace HotelManager
         public LoginForm()
         {
             InitializeComponent();
+            if (!DBCreator.ExistDatabase("Hotel"))
+            {
+                DBCreator.CreateDb("Hotel");
+            }
         }
 
         private void btn_exit_Click(object sender, EventArgs e)

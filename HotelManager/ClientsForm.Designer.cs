@@ -54,7 +54,7 @@
             dgrv_residence = new DataGridView();
             ClientName = new DataGridViewTextBoxColumn();
             RoomName = new DataGridViewTextBoxColumn();
-            SartDate = new DataGridViewTextBoxColumn();
+            StartDate = new DataGridViewTextBoxColumn();
             EndDate = new DataGridViewTextBoxColumn();
             CountDays = new DataGridViewTextBoxColumn();
             Price = new DataGridViewTextBoxColumn();
@@ -170,7 +170,7 @@
             // 
             dtp_endDate.CustomFormat = "dd.MM.yyyy HH:mm";
             dtp_endDate.Format = DateTimePickerFormat.Custom;
-            dtp_endDate.Location = new Point(683, 80);
+            dtp_endDate.Location = new Point(454, 77);
             dtp_endDate.Name = "dtp_endDate";
             dtp_endDate.Size = new Size(213, 39);
             dtp_endDate.TabIndex = 7;
@@ -178,7 +178,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(683, 38);
+            label4.Location = new Point(454, 35);
             label4.Name = "label4";
             label4.Size = new Size(189, 32);
             label4.TabIndex = 6;
@@ -186,7 +186,7 @@
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(507, 80);
+            numericUpDown1.Location = new Point(278, 77);
             numericUpDown1.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(150, 39);
@@ -197,7 +197,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(507, 35);
+            label3.Location = new Point(278, 32);
             label3.Name = "label3";
             label3.Size = new Size(163, 32);
             label3.TabIndex = 4;
@@ -207,7 +207,7 @@
             // 
             dtp_startDate.CustomFormat = "dd.MM.yyyy HH:mm";
             dtp_startDate.Format = DateTimePickerFormat.Custom;
-            dtp_startDate.Location = new Point(235, 80);
+            dtp_startDate.Location = new Point(6, 77);
             dtp_startDate.Name = "dtp_startDate";
             dtp_startDate.Size = new Size(240, 39);
             dtp_startDate.TabIndex = 3;
@@ -216,7 +216,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(235, 38);
+            label2.Location = new Point(6, 35);
             label2.Name = "label2";
             label2.Size = new Size(185, 32);
             label2.TabIndex = 2;
@@ -225,7 +225,7 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(6, 80);
+            comboBox1.Location = new Point(684, 77);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(208, 39);
             comboBox1.TabIndex = 1;
@@ -233,7 +233,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(6, 35);
+            label1.Location = new Point(684, 32);
             label1.Name = "label1";
             label1.Size = new Size(180, 32);
             label1.TabIndex = 0;
@@ -255,7 +255,7 @@
             dgrv_residence.AllowUserToAddRows = false;
             dgrv_residence.AllowUserToDeleteRows = false;
             dgrv_residence.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgrv_residence.Columns.AddRange(new DataGridViewColumn[] { ClientName, RoomName, SartDate, EndDate, CountDays, Price, TotalSum });
+            dgrv_residence.Columns.AddRange(new DataGridViewColumn[] { ClientName, RoomName, StartDate, EndDate, CountDays, Price, TotalSum });
             dgrv_residence.Dock = DockStyle.Fill;
             dgrv_residence.Location = new Point(3, 35);
             dgrv_residence.Name = "dgrv_residence";
@@ -280,16 +280,16 @@
             RoomName.Name = "RoomName";
             RoomName.ReadOnly = true;
             // 
-            // SartDate
+            // StartDate
             // 
-            SartDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            StartDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle1.Format = "g";
             dataGridViewCellStyle1.NullValue = null;
-            SartDate.DefaultCellStyle = dataGridViewCellStyle1;
-            SartDate.HeaderText = "Дата заселення";
-            SartDate.MinimumWidth = 6;
-            SartDate.Name = "SartDate";
-            SartDate.ReadOnly = true;
+            StartDate.DefaultCellStyle = dataGridViewCellStyle1;
+            StartDate.HeaderText = "Дата заселення";
+            StartDate.MinimumWidth = 6;
+            StartDate.Name = "StartDate";
+            StartDate.ReadOnly = true;
             // 
             // EndDate
             // 
@@ -376,13 +376,13 @@
         private Label label3;
         private Label label5;
         private TextBox txt_client;
+        private Button button1;
         private DataGridViewTextBoxColumn ClientName;
         private DataGridViewTextBoxColumn RoomName;
-        private DataGridViewTextBoxColumn SartDate;
+        private DataGridViewTextBoxColumn StartDate;
         private DataGridViewTextBoxColumn EndDate;
         private DataGridViewTextBoxColumn CountDays;
         private DataGridViewTextBoxColumn Price;
         private DataGridViewTextBoxColumn TotalSum;
-        private Button button1;
     }
 }

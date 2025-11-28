@@ -1,4 +1,6 @@
 ﻿using HotelManager.DAL;
+using HotelManager.Domains;
+using HotelManager.Domains.VM;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +17,7 @@ namespace HotelManager
     {
         private readonly ClientDb _clientDb = new ClientDb();
         private readonly RoomDb _roomDb = new RoomDb();
+        private readonly ResidenceDb _residenceDb = new ResidenceDb();
         public ClientsForm()
         {
             InitializeComponent();
@@ -50,6 +53,32 @@ namespace HotelManager
             }
         }
 
+        private void FillResidencesTable(int IdClient)
+        {
+            var residences = _residenceDb.GetResidenceVMs(IdClient);
+            if (residences == null)
+            {
+                return;
+            }
+            if (dgrv_residence.RowCount > 0)
+            {
+                dgrv_residence.Rows.Clear();
+            }
+            int index = 0;
+            foreach (var residence in residences)
+            {
+                dgrv_residence.Rows.Add();
+                dgrv_residence.Rows[index].Cells["ClientName"].Value = residence.ClientName;
+                dgrv_residence.Rows[index].Cells["RoomName"].Value = residence.RoomName;
+                dgrv_residence.Rows[index].Cells["StartDate"].Value = residence.StartDate.ToShortDateString();
+                dgrv_residence.Rows[index].Cells["EndDate"].Value = residence.EndDate.ToShortDateString();
+                dgrv_residence.Rows[index].Cells["CountDays"].Value = residence.CountDays;
+                dgrv_residence.Rows[index].Cells["Price"].Value = residence.RoomPrice;
+                dgrv_residence.Rows[index].Cells["TotalSum"].Value = residence.TotalPrice;
+                index++;
+            }
+        }
+
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < dataGridView1.RowCount - 1)
@@ -57,12 +86,54 @@ namespace HotelManager
                 string FullName = dataGridView1.Rows[e.RowIndex].Cells["FirstName"].Value.ToString() + " " +
                                   dataGridView1.Rows[e.RowIndex].Cells["LastName"].Value.ToString();
                 txt_client.Text = FullName;
+                int IdClient = (int)dataGridView1.Rows[e.RowIndex].Cells["Id"].Value;
+                FillResidencesTable(IdClient);
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // Ensure a client is selected
+                var currentRow = dataGridView1.CurrentRow;
+                if (currentRow == null)
+                {
+                    MessageBox.Show("Please select a client first.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
+                // Safely extract client id
+                var idCellValue = currentRow.Cells["Id"].Value;
+                if (!(idCellValue is int clientId))
+                {
+                    MessageBox.Show("Selected client does not have a valid Id.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Safely extract room id from comboBox1.SelectedValue to avoid CS8605
+                var selectedValue = comboBox1.SelectedValue;
+                if (!(selectedValue is int roomId))
+                {
+                    MessageBox.Show("Please select a room.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                Residence residence = new Residence
+                {
+                    IdClient = clientId,
+                    IdRoom = roomId,
+                    StartDate = dtp_startDate.Value,
+                    EndDate = dtp_endDate.Value,
+                    CountDays = (int)numericUpDown1.Value
+                };
+                _residenceDb.Add(residence);
+                FillResidencesTable(residence.IdClient);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
