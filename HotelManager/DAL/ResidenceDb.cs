@@ -74,5 +74,12 @@ namespace HotelManager.DAL
             const string sql = "DELETE FROM Residence WHERE Id = @Id";
             return connection.Execute(sql, new { Id = id }) > 0;
         }
+
+        public bool DeleteClientResidences(int clientId)
+        {
+            using var connection = new SqlConnection(_connectionString);
+            const string sql = "DELETE FROM Residence WHERE IdClient = @ClientId";
+            return connection.Execute(sql, new { ClientId = clientId }) > 0;
+        }
     }
 }

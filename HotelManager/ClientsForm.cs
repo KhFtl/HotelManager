@@ -141,5 +141,11 @@ namespace HotelManager
             int days = (int)numericUpDown1.Value;
             dtp_endDate.Value = dtp_startDate.Value.AddDays(days);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ClientManager clientManager = new ClientManager();
+            clientManager.ShowDialog();
+        }
     }
 }

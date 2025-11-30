@@ -41,7 +41,15 @@ namespace HotelManager.DAL
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                int rowsAffected = connection.Execute("UPDATE Clients SET FirstName = @FirstName, LastName = @LatsName, PhoneNumber=@PhoneNumber", client);
+                int rowsAffected = connection.Execute("UPDATE Clients SET FirstName = @FirstName, LastName = @LastName, PhoneNumber=@PhoneNumber WHERE Id=@Id", client);
+                return rowsAffected > 0;
+            }
+        }
+        public bool DeleteClient(int Id)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                int rowsAffected = connection.Execute("DELETE FROM Clients WHERE Id = @Id", new { Id });
                 return rowsAffected > 0;
             }
         }

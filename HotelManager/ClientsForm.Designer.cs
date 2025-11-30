@@ -59,6 +59,7 @@
             CountDays = new DataGridViewTextBoxColumn();
             Price = new DataGridViewTextBoxColumn();
             TotalSum = new DataGridViewTextBoxColumn();
+            button2 = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox2.SuspendLayout();
@@ -121,6 +122,7 @@
             // groupBox2
             // 
             groupBox2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox2.Controls.Add(button2);
             groupBox2.Controls.Add(button1);
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(txt_client);
@@ -332,6 +334,16 @@
             TotalSum.Name = "TotalSum";
             TotalSum.ReadOnly = true;
             // 
+            // button2
+            // 
+            button2.Location = new Point(1250, 161);
+            button2.Name = "button2";
+            button2.Size = new Size(197, 59);
+            button2.TabIndex = 11;
+            button2.Text = "Client Manager";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // ClientsForm
             // 
             AutoScaleDimensions = new SizeF(13F, 31F);
@@ -384,5 +396,6 @@
         private DataGridViewTextBoxColumn CountDays;
         private DataGridViewTextBoxColumn Price;
         private DataGridViewTextBoxColumn TotalSum;
+        private Button button2;
     }
 }
